@@ -1,190 +1,132 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha Loja</title>
     <style>
-        /* Reset e base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
-        }
-
-        body {
-            background: #f5f7fa;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(145deg, #1a1a2e, #16213e);
-            color: white;
-            padding: 32px 20px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        header h1 {
-            font-size: 2.2rem;
-            letter-spacing: 1px;
-        }
-
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.85;
-            margin-top: 6px;
-        }
-
-        /* Produtos */
-        .produtos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            padding: 50px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            flex: 1;
-        }
-
-        /* Card */
-        .card {
-            background: white;
-            border-radius: 16px;
-            padding: 28px 20px 24px;
-            width: 260px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            transition: transform 0.25s ease, box-shadow 0.3s ease;
-            text-align: center;
-            border: 1px solid rgba(0, 0, 0, 0.02);
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
-        }
-
-        .card h3 {
-            color: #1a1a2e;
-            font-size: 1.4rem;
-            margin-bottom: 8px;
-        }
-
-        .card p {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.4;
-            margin-bottom: 12px;
-        }
-
-        .preco {
-            font-size: 28px;
-            color: #e94560;
-            font-weight: 700;
-            margin: 12px 0 18px;
-            letter-spacing: 0.5px;
-        }
-
-        .btn {
-            background: #e94560;
-            color: white;
-            border: none;
-            padding: 14px 36px;
-            border-radius: 40px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.15s;
-            box-shadow: 0 4px 10px rgba(233, 69, 96, 0.3);
-        }
-
-        .btn:hover {
-            background: #c73652;
-            transform: scale(1.02);
-        }
-
-        .btn:active {
-            transform: scale(0.96);
-        }
-
-        /* Rodapé */
-        footer {
-            text-align: center;
-            padding: 24px 20px;
-            color: #888;
-            font-size: 0.95rem;
-            border-top: 1px solid #e0e4e8;
-            margin-top: 20px;
-            background: white;
-        }
-
-        /* Responsivo */
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
-
-            .produtos {
-                padding: 30px 16px;
-                gap: 20px;
-            }
-
-            .card {
-                width: 100%;
-                max-width: 320px;
-            }
-
-            .preco {
-                font-size: 24px;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background: #f5f5f5; }
+        header { background: #1a1a2e; color: white; padding: 20px; text-align: center; }
+        .produtos { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 40px; max-width: 1200px; margin: auto; }
+        .card { background: white; border-radius: 12px; padding: 20px; width: 280px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; }
+        .card h3 { color: #1a1a2e; margin: 10px 0; }
+        .card p { color: #666; font-size: 14px; }
+        .preco { font-size: 28px; color: #e94560; font-weight: bold; margin: 10px 0; }
+        .btn { display: inline-block; background: #25d366; color: white; border: none; padding: 12px 20px; border-radius: 6px; font-size: 16px; cursor: pointer; text-decoration: none; margin: 5px; width: 100%; }
+        .btn-pagar { background: #007bff; }
+        .btn-carrinho { background: #ff9800; }
+        .btn:hover { opacity: 0.8; }
+        footer { text-align: center; padding: 20px; color: #666; }
+        .carrinho { max-width: 800px; margin: 20px auto; background: white; padding: 20px; border-radius: 12px; }
+        .carrinho h2 { text-align: center; }
+        .item-carrinho { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #ddd; }
+        .total { text-align: right; font-size: 20px; font-weight: bold; margin-top: 20px; }
+        .btn-finalizar { background: #28a745; color: white; border: none; padding: 15px 30px; border-radius: 6px; font-size: 18px; cursor: pointer; width: 100%; }
+        .btn-finalizar:hover { opacity: 0.8; }
     </style>
 </head>
 <body>
-
     <header>
         <h1>🛒 Minha Loja</h1>
         <p>Os melhores produtos com preços incríveis!</p>
     </header>
 
-    <section class="produtos">
+    <section class="produtos" id="produtos">
+        <!-- Produto 1 -->
         <div class="card">
             <h3>Produto 1</h3>
             <p>Descrição do produto</p>
             <div class="preco">R$ 99,90</div>
-            <button class="btn">Comprar</button>
+            <a href="https://wa.me/5599999999999?text=Quero%20comprar%20Produto%201" target="_blank" class="btn">💬 Comprar no WhatsApp</a>
+            <a href="https://www.mercadopago.com.br" target="_blank" class="btn btn-pagar">💳 Pagar com Mercado Pago</a>
+            <button class="btn btn-carrinho" onclick="adicionarCarrinho('Produto 1', 99.90)">🛒 Adicionar ao Carrinho</button>
         </div>
+
+        <!-- Produto 2 -->
         <div class="card">
             <h3>Produto 2</h3>
             <p>Descrição do produto</p>
             <div class="preco">R$ 149,90</div>
-            <button class="btn">Comprar</button>
+            <a href="https://wa.me/5599999999999?text=Quero%20comprar%20Produto%202" target="_blank" class="btn">💬 Comprar no WhatsApp</a>
+            <a href="https://www.mercadopago.com.br" target="_blank" class="btn btn-pagar">💳 Pagar com Mercado Pago</a>
+            <button class="btn btn-carrinho" onclick="adicionarCarrinho('Produto 2', 149.90)">🛒 Adicionar ao Carrinho</button>
         </div>
+
+        <!-- Produto 3 -->
         <div class="card">
             <h3>Produto 3</h3>
             <p>Descrição do produto</p>
             <div class="preco">R$ 79,90</div>
-            <button class="btn">Comprar</button>
+            <a href="https://wa.me/5599999999999?text=Quero%20comprar%20Produto%203" target="_blank" class="btn">💬 Comprar no WhatsApp</a>
+            <a href="https://www.mercadopago.com.br" target="_blank" class="btn btn-pagar">💳 Pagar com Mercado Pago</a>
+            <button class="btn btn-carrinho" onclick="adicionarCarrinho('Produto 3', 79.90)">🛒 Adicionar ao Carrinho</button>
         </div>
     </section>
 
+    <!-- CARRINHO DE COMPRAS -->
+    <div class="carrinho" id="carrinho">
+        <h2>🛒 Seu Carrinho</h2>
+        <div id="itens-carrinho"></div>
+        <div class="total" id="total-carrinho">Total: R$ 0,00</div>
+        <button class="btn-finalizar" onclick="finalizarCompra()">✅ Finalizar Compra</button>
+    </div>
+
     <footer>
-        <p>© 2026 Minha Loja · Todos os direitos reservados</p>
+        <p>© 2026 Minha Loja - Todos os direitos reservados</p>
     </footer>
 
-    <!-- Pequeno script para feedback ao clicar -->
     <script>
-        document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const produto = this.closest('.card').querySelector('h3').innerText;
-                alert(`🛍️ "${produto}" adicionado ao carrinho!`);
+        // CARRINHO DE COMPRAS
+        let carrinho = [];
+
+        function adicionarCarrinho(nome, preco) {
+            carrinho.push({ nome, preco });
+            atualizarCarrinho();
+            alert(nome + " adicionado ao carrinho! 🛒");
+        }
+
+        function removerCarrinho(index) {
+            carrinho.splice(index, 1);
+            atualizarCarrinho();
+        }
+
+        function atualizarCarrinho() {
+            let div = document.getElementById('itens-carrinho');
+            let total = 0;
+            if (carrinho.length === 0) {
+                div.innerHTML = '<p style="text-align:center; color:#999;">Carrinho vazio</p>';
+                document.getElementById('total-carrinho').innerHTML = 'Total: R$ 0,00';
+                return;
+            }
+            let html = '';
+            carrinho.forEach((item, index) => {
+                total += item.preco;
+                html += `<div class="item-carrinho">
+                    <span>${item.nome} - R$ ${item.preco.toFixed(2)}</span>
+                    <button onclick="removerCarrinho(${index})" style="background:red;color:white;border:none;padding:5px 10px;border-radius:4px;cursor:pointer;">❌</button>
+                </div>`;
             });
-        });
+            div.innerHTML = html;
+            document.getElementById('total-carrinho').innerHTML = Total: R$ ${total.toFixed(2)};
+        }
+
+        function finalizarCompra() {
+            if (carrinho.length === 0) {
+                alert('Seu carrinho está vazio!');
+                return;
+            }
+            let mensagem = 'Olá! Quero comprar:%0a';
+            let total = 0;
+            carrinho.forEach(item => {
+                mensagem += - ${item.nome} - R$ ${item.preco.toFixed(2)}%0a;
+                total += item.preco;
+            });
+            mensagem += %0aTotal: R$ ${total.toFixed(2)};
+            window.open(https://wa.me/5531972226261?text=${mensagem}, '_blank');
+            carrinho = [];
+            atualizarCarrinho();
+        }
     </script>
 </body>
 </html>
