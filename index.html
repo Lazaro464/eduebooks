@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Loja</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background: #f5f5f5; }
+        header { background: #1a1a2e; color: white; padding: 20px; text-align: center; }
+        .produtos { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 40px; max-width: 1200px; margin: auto; }
+        .card { background: white; border-radius: 12px; padding: 20px; width: 250px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; }
+        .card h3 { color: #1a1a2e; margin: 10px 0; }
+        .card p { color: #666; font-size: 14px; }
+        .preco { font-size: 24px; color: #e94560; font-weight: bold; margin: 10px 0; }
+        .btn { background: #e94560; color: white; border: none; padding: 12px 30px; border-radius: 6px; font-size: 16px; cursor: pointer; }
+        .btn:hover { background: #c73652; }
+        footer { text-align: center; padding: 20px; color: #666; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🛒 Minha Loja</h1>
+        <p>Os melhores produtos com preços incríveis!</p>
+    </header>
+
+    <section class="produtos">
+        <div class="card">
+            <h3>Produto 1</h3>
+            <p>Descrição do produto</p>
+            <div class="preco">R$ 99,90</div>
+            <button class="btn">Comprar</button>
+        </div>
+        <div class="card">
+            <h3>Produto 2</h3>
+            <p>Descrição do produto</p>
+            <div class="preco">R$ 149,90</div>
+            <button class="btn">Comprar</button>
+        </div>
+        <div class="card">
+            <h3>Produto 3</h3>
+            <p>Descrição do produto</p>
+            <div class="preco">R$ 79,90</div>
+            <button class="btn">Comprar</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Minha Loja - Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>        
